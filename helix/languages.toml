@@ -1,0 +1,31 @@
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+[language-server.tailwindcss-ls]
+command = "tailwind-language-server"
+args = ["--stdio"]
+
+[language-server.emmet-lsp]
+args = ["--stdio"]
+command = "emmet-language-server"}
+
+[[language]]
+name = "html"
+language-servers = ["vscode-html-language-server", "emmet-lsp"]
+
+[[language]]
+name = "svelte"
+auto-format = true
+language-servers = ["svelteserver", "emmet-lsp", {name= "tailwindcss-ls", except-features = ["hover"]}]
+
+[[language]]
+name = "typescript"
+auto-format = true
+language-servers = [{ name = "tailwindcss-ls", except-features = ["hover"]}, "typescript-language-server", "emmet-ls", "eslint-ls"]
+formatter = { command = "prettier"}
+
+[[language]]
+name = "javascript"
+auto-format = true
+language-servers = [{name = "tailwindcss-ls", except-features = ["hover"]}, "typescript-language-server", "emmet-ls", "eslint-ls"]
+formatter = { commannd = "prettier"}
